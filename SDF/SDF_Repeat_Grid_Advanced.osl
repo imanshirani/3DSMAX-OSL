@@ -1,0 +1,35 @@
+
+// SDF_Repeat_Grid_Advanced.osl by IMAN SHIRANI
+// 2025-09-11
+
+
+shader SDF_Repeat_Grid_Advanced(
+    point Position_In = P,
+
+   
+    int Divisions_X = 5,
+    int Divisions_Y = 5,
+
+    
+    output point Position_Out = P,
+    output point Cell_ID = point(0.0) 
+)
+{
+    
+    vector divisions = vector(max(1, Divisions_X), max(1, Divisions_Y), 1.0);
+    
+    vector cell_size = 1.0 / divisions;
+    
+ 
+    Cell_ID = floor(Position_In / cell_size);
+    
+    
+    point p_centered = Position_In + 0.5 * cell_size;
+    point p_mod = mod(p_centered, cell_size);
+    Position_Out = p_mod - 0.5 * cell_size;
+
+    
+    Position_Out = Position_Out * divisions;
+
+    Position_Out[2] = Position_In[2];
+}

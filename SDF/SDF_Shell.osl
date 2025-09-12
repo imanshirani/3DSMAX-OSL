@@ -1,0 +1,22 @@
+
+
+// SDF_Shell.osl by IMAN SHIRANI
+// 2025-09-11
+
+
+shader SDF_Shell(
+    
+    float SDF_In = 0.0,
+    
+    
+    float Thickness = 0.1,
+
+    output float SDF_Out = 0.0
+)
+{
+    
+    float abs_sdf = abs(SDF_In);
+    
+    
+    SDF_Out = abs_sdf - (Thickness / 2.0);
+}

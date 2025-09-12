@@ -1,0 +1,28 @@
+
+// SDF_Repeat_2D.osl by IMAN SHIRANI
+// 2025-09-11
+
+shader SDF_Repeat_2D(
+    
+    point Position_In = P,
+
+    
+    vector Cell_Size = vector(2.0, 2.0, 0.0),
+
+    
+    output point Position_Out = P,
+    
+    output point Cell_ID = point(0.0) 
+)
+{
+    
+    Cell_ID = floor(Position_In / Cell_Size);
+    
+    
+    point p_centered = Position_In + 0.5 * Cell_Size;
+    point p_mod = mod(p_centered, Cell_Size);
+    Position_Out = p_mod - 0.5 * Cell_Size;
+
+    
+    Position_Out[2] = Position_In[2];
+}

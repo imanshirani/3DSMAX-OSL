@@ -1,0 +1,16 @@
+
+
+// SDF_to_Mask.osl by IMAN SHIRANI
+// 2025-09-11
+
+shader SDF_to_Mask(
+    float SDF_In = 0.0,
+    float Blur = 0.01, 
+
+    output color Mask_Out = color(0.0)
+)
+{
+    
+    float mask_value = 1.0 - smoothstep(-Blur, Blur, SDF_In);
+    Mask_Out = color(mask_value);
+}

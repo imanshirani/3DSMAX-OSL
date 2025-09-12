@@ -1,0 +1,19 @@
+
+// SDF Sphere Shader
+// SDF_Sphere.osl by IMAN SHIRANI
+// 2025-09-11
+
+
+
+shader SDF_Sphere(
+    
+    point Position = P,
+    float Radius = 1.0,
+
+    
+    output float SDF_Out = 0.0
+)
+{
+    
+    SDF_Out = distance(Position, point(0, 0, 0)) - Radius;
+}

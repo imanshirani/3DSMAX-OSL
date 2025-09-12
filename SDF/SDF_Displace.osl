@@ -1,0 +1,21 @@
+
+// SDF_Displace.osl by IMAN SHIRANI
+// 2025-09-11
+
+
+shader SDF_Displace(
+    
+    float SDF_In = 0.0,
+    
+    
+    float Noise_In = 0.0,
+    
+    
+    float Amount = 0.1,
+
+    output float SDF_Out = 0.0
+)
+{
+    
+    SDF_Out = SDF_In + (Noise_In * Amount);
+}
