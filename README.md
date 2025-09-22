@@ -4,6 +4,8 @@ A powerful collection of **OSL (Open Shading Language)** nodes for creating comp
 
 This toolkit brings the power of **Signed Distance Fields (SDFs)** and procedural modeling into a user-friendly, node-based workflow for artists and designers.
 
+![screenshot](SignedDistanceFields(SDFs).png)
+
 ---
 
 ## 📖 About The Project
