@@ -1,0 +1,58 @@
+
+// SDF_Noise_Advanced.osl by IMAN SHIRANI
+// 2025-09-11
+
+
+shader SDF_Noise_Advanced(
+    point Position = P,
+
+    
+    int Noise_Type = 0
+    [[
+        string widget = "mapper",
+        string options = "Simplex:0|Perlin:1|Cell:2"
+    ]],
+    float Scale = 1.0,
+    int Octaves = 4,
+    float Lacunarity = 2.0,  // How much detail is added per octave
+    float Gain = 0.5,        // How much each octave contributes
+    int Turbulence = 0
+    [[
+        string widget = "checkBox"
+    ]],
+
+    output float Noise_Out = 0.0
+)
+{
+    float amplitude = 1.0;
+    float frequency = 1.0 / Scale;
+    float noise_val = 0.0;
+    point p = Position;
+
+    // Loop for adding layers of detail (Octaves)
+    for (int i = 0; i < Octaves; i++) {
+        float current_noise = 0.0;
+
+        // Select the noise type from the dropdown
+        if (Noise_Type == 0) { // Simplex
+            current_noise = snoise(p * frequency);
+        } else if (Noise_Type == 1) { // Perlin
+            current_noise = noise("perlin", p * frequency);
+        } else { // Cell
+            current_noise = noise("cell", p * frequency);
+        }
+
+        
+        if (Turbulence) {
+            current_noise = abs(current_noise);
+        }
+        
+        noise_val += current_noise * amplitude;
+        
+        
+        frequency *= Lacunarity;
+        amplitude *= Gain;
+    }
+
+    Noise_Out = noise_val;
+}

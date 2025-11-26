@@ -1,0 +1,23 @@
+// SDF Line Shader
+// SDF_Line.osl by IMAN SHIRANI
+// 2025-09-11
+
+
+
+shader SDF_Line(
+    point Position = P,
+    point PointA = point(-1, 0, 0),
+    point PointB = point(1, 0, 0),
+    float Thickness = 0.1,
+    
+    output float SDF_Out = 0.0
+)
+{
+    vector pa = Position - PointA;
+    vector ba = PointB - PointA;   
+    
+    float h = clamp(dot(pa, ba) / dot(ba, ba), 0.0, 1.0);
+    
+    
+    SDF_Out = length(pa - ba * h) - Thickness;
+}

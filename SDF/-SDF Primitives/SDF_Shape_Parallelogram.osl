@@ -1,0 +1,43 @@
+// SDF_Shape_Parallelogram.osl by IMAN SHIRANI
+// 2025-11-25
+shader SDF_Shape_Parallelogram
+(
+    point Position = P,
+    float Width = 0.5 [[ string label = "Width" ]],
+    float Height = 0.5 [[ string label = "Height" ]],
+    float Skew = 0.2 [[ string label = "Skew Amount" ]],
+    float CornerRadius = 0.0 [[ string label = "Corner Radius", float min = 0.0 ]],
+    output float SDF_Out = 0.0
+)
+{
+    point p_raw = Position;
+    vector p = vector(p_raw[0], p_raw[1], 0.0);
+    
+    vector e = vector(Skew, Height, 0.0);
+    
+    
+    p = (p[1] < 0.0) ? -p : p;
+    
+    vector w = p - e;
+    w[0] -= clamp(w[0], -Width, Width);
+    
+    vector d_vec = vector(dot(w,w), -w[1], 0.0);
+    
+    float s = p[0]*e[1] - p[1]*e[0];
+    
+    p = (abs(s) < Width*e[1]) ? p : p - vector(sign(s)*Width, 0, 0);
+    
+    
+    vector v_vec = p - e*clamp(dot(p,e)/dot(e,e), 0.0, 1.0);
+    
+    float d = length(v_vec);
+    
+    
+    d = sqrt(min(d_vec[0], dot(v_vec,v_vec))) * sign(max(d_vec[1], d));
+    
+    
+    if (d_vec[1] < 0.0 && abs(s) < Width*e[1]) d = -d;
+    
+    
+    SDF_Out = d - CornerRadius;
+}
