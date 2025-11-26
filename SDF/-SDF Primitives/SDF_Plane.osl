@@ -1,0 +1,23 @@
+// SDF_Plane.osl by IMAN SHIRANI
+// 2025-09-11
+
+
+shader SDF_Plane
+(
+    point Position = P,
+    
+    // جهت نرمال صفحه (مثلاً 0,1,0 یعنی رو به بالا)
+    vector Normal = vector(0, 1, 0) [[ string label = "Plane Normal" ]],
+    
+    // ارتفاع یا فاصله از مرکز
+    float Height = 0.0 [[ string label = "Offset / Height" ]],
+    
+    output float SDF_Out = 0.0
+)
+{
+    // نرمال باید حتما نرمالایز شود (طولش ۱ شود)
+    vector n = normalize(Normal);
+    
+    // فرمول صفحه: دات پروداکت نقطه و نرمال + ارتفاع
+    SDF_Out = dot(Position, n) + Height;
+}

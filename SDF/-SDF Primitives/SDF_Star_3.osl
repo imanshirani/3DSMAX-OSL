@@ -1,0 +1,37 @@
+// SDF Star_3 Shader
+// SDF_Star_3.osl by IMAN SHIRANI
+// 2025-09-11
+
+
+
+shader SDF_Star_3(
+    
+    point Position_UV = point(u, v, 0.0) * 2.0 - vector(1.0),
+
+    int Vertices = 5,
+    float RadiusOuter = 0.8,
+    float RadiusInner = 0.4,
+
+    output float SDF_Out = 0.0
+)
+{
+    
+    vector p = vector(Position_UV[0], Position_UV[1], 0.0);
+
+    
+    float angle = atan2(p[1], p[0]);
+    float r = length(p);
+
+    
+    float slice_angle = M_PI / Vertices;
+
+    
+    float folded_angle = fmod(abs(angle), 2.0 * slice_angle);
+
+    
+    float t = abs(folded_angle - slice_angle) / slice_angle;
+    float star_radius = mix(RadiusInner, RadiusOuter, t);
+
+    
+    SDF_Out = r - star_radius;
+}

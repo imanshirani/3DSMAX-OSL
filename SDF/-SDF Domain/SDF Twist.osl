@@ -1,0 +1,22 @@
+// SDF_Twist.osl by IMAN SHIRANI
+// 2025-11-25
+shader SDF_Twist(
+    point InputPoint = P,
+    float Amount = 1.0 [[ string label = "Twist Amount", float min = -10.0, float max = 10.0 ]],
+    output point OutPoint = P
+)
+{
+    
+    float y = InputPoint[1];
+    
+    
+    float c = cos(Amount * y);
+    float s = sin(Amount * y);
+    
+    s
+    float x_new = c * InputPoint[0] - s * InputPoint[2];
+    float z_new = s * InputPoint[0] + c * InputPoint[2];
+    
+    
+    OutPoint = point(x_new, y, z_new);
+}

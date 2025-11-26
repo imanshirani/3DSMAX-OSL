@@ -1,0 +1,16 @@
+
+// SDF_Transform_2D.osl by IMAN SHIRANI
+// 2025-09-11
+
+
+shader SDF_Transform_2D(
+    point Position_In = P,
+    float Transform_X = 0.0,
+    float Transform_Y = 0.0,
+
+    output point Position_Out = P
+)
+{
+    
+    Position_Out = Position_In - vector(Transform_X, Transform_Y, 0.0);
+}

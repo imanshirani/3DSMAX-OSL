@@ -1,0 +1,19 @@
+
+// Util_Color_by_Value.osl by IMAN SHIRANI
+// 2025-09-11
+
+
+shader Util_Color_by_Value(
+    
+    float Value_In = 0.0,
+
+    
+    color Color_Low = color(0.1),  
+    color Color_High = color(1.0), 
+
+    output color Color_Out = color(0.0)
+)
+{
+    
+    Color_Out = mix(Color_Low, Color_High, clamp(Value_In, 0.0, 1.0));
+}

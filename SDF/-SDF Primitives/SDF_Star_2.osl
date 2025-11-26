@@ -1,0 +1,32 @@
+// SDF Star_2 Shader
+// SDF_Star_2.osl by IMAN SHIRANI
+// 2025-09-11
+
+
+
+shader SDF_Star_2(
+    point Position = P,
+    int Vertices = 5,
+    float RadiusOuter = 1.0,  
+    float RadiusInner = 0.4,  
+
+    output float SDF_Out = 0.0
+)
+{
+    
+    vector p = vector(Position[0], Position[1], 0.0);
+    float angle_slice = M_PI / Vertices;
+    float angle = atan2(p[1], p[0]);
+    float angle_folded = mod(angle, 2.0 * angle_slice) - angle_slice;
+    float r = length(p);
+    p = r * vector(cos(angle_folded), abs(sin(angle_folded)), 0.0);
+    vector p_inner = RadiusInner * vector(cos(angle_slice), -sin(angle_slice), 0.0);
+    vector p_outer = RadiusOuter * vector(1.0, 0.0, 0.0);
+    vector edge = p_outer - p_inner;
+    vector w = p - p_inner;
+    float h = clamp(dot(w, edge) / dot(edge, edge), 0.0, 1.0);
+    float dist = length(w - edge * h);
+
+    
+    SDF_Out = dist * sign(p[0]*edge[1] - p[1]*edge[0]);
+}

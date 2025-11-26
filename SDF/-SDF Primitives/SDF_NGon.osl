@@ -1,0 +1,24 @@
+
+// SDF Rectangle Shader
+// SDF_Rectangle.osl by IMAN SHIRANI
+// 2025-09-11
+
+
+shader SDF_NGon(
+    point Position = P,
+    int Sides = 5,
+    float Radius = 1.0,
+
+    output float SDF_Out = 0.0
+)
+{
+    
+    vector p = vector(Position[0], Position[1], 0.0);    
+    float angle_step = 2.0 * M_PI / Sides;
+    float angle = atan2(p[1], p[0]);   
+    float effective_angle = mod(angle, angle_step) - angle_step / 2.0;    
+    vector rotated_p = length(p) * vector(cos(effective_angle), sin(effective_angle), 0.0);
+    float d = dot(rotated_p - vector(Radius, 0, 0), vector(1, 0, 0));
+
+    SDF_Out = d;
+}

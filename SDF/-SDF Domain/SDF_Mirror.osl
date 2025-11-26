@@ -1,0 +1,22 @@
+// SDF_Mirror.osl by IMAN SHIRANI
+// 2025-11-25
+
+shader SDF_Mirror(
+    point InputPoint = P,
+    
+    int Axis = 0 [[ string widget = "mapper", string options = "X-Axis:0|Y-Axis:1|Z-Axis:2" ]],
+    float Offset = 0.0 [[ string label = "Mirror Plane Offset" ]],
+    
+    output point OutPoint = P
+)
+{
+    point p = InputPoint;
+    
+    
+    
+    if (Axis == 0) p[0] = abs(p[0] - Offset) + Offset;
+    else if (Axis == 1) p[1] = abs(p[1] - Offset) + Offset;
+    else             p[2] = abs(p[2] - Offset) + Offset;
+    
+    OutPoint = p;
+}

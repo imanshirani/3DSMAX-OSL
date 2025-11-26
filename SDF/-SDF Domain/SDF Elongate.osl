@@ -1,0 +1,31 @@
+// SDF_Elongate.osl by IMAN SHIRANI
+// 2025-11-25
+
+
+
+
+shader SDF_Elongate
+(
+    point InputPoint = P,
+    
+    // میزان کشش در هر محور
+    vector Stretch = vector(0.0, 0.0, 0.0) [[ string label = "Stretch Size", float min = 0.0 ]],
+    
+    output point OutPoint = P
+)
+{
+    // تبدیل پوینت به وکتور برای محاسبات ریاضی
+    vector p = vector(InputPoint[0], InputPoint[1], InputPoint[2]);
+    
+    // محدود کردن فاصله (Clamp)
+    // q = p - clamp(p, -h, h)
+    // اینجا چون clamp وکتور با وکتور در برخی نسخه‌ها ارور می‌دهد، دستی می‌نویسیم:
+    
+    vector q = p - vector(
+        clamp(p[0], -Stretch[0], Stretch[0]),
+        clamp(p[1], -Stretch[1], Stretch[1]),
+        clamp(p[2], -Stretch[2], Stretch[2])
+    );
+    
+    OutPoint = point(q[0], q[1], q[2]);
+}
