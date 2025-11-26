@@ -84,58 +84,85 @@ Connect Mask_Out → Base Color + Displacement inputs of your main material
 
 📚 Node Library Overview
 
-🔷 Primitives
+> **New Update:** Complete restructuring with proper categories, new 2D primitives, domain operators, and utility nodes for 3ds Max workflow.
 
-SDF Sphere
+## 📂 Categories & Features
 
-SDF Box
+The library is organized into the following categories in the 3ds Max Map Browser:
 
-SDF Cylinder
+### 1. Primitives (Shapes)
+Basic building blocks. All 2D shapes include a `Corner Radius` parameter for rounding edges.
 
-SDF Torus
+* **Shapes:**
+* `SDF_Box` (Standard Box)
+* `SDF_Sphere`
+* `SDF_Torus`
+* `SDF_Cylinder`
+* `SDF_Capsule` (Line with radius)
+* `SDF_Plane` (Infinite Plane)
+* `ImageToSDF` (Generate 3D height field from images)
+* `SDF_Rectangle` / `SDF_Box_4Corner` (Advanced Box with independent corners)
+* `SDF_Line`
+* `SDF_NGon` (Regular Polygon)
+* `SDF_Ellipse` / `SDF_Egg`
+* `SDF_Shape_Triangle` (Free-form)
+* `SDF_Shape_Triangle_Equilateral`
+* `SDF_Shape_Triangle_Isosceles`
+* `SDF_Shape_Rhombus`
+* `SDF_Shape_Trapezoid`
+* `SDF_Shape_Parallelogram`
+* `SDF_Shape_Arc`
+* `SDF_Shape_Pie`
+* `SDF_Shape_Vesica` (Eye/Leaf shape)
+* `SDF_Star` / `SDF_Star_2` / `SDF_Star_3` / `SDF_Star_outline`
+* `SDF_Shape_Heart`
+* `SDF_Shape_CoolS`
+* `SDF_Shape_Cross` *(New)*
+* `SDF_Shape_RoundedX` *(New)*
+* `SDF_Shape_Stairs` *(New)*
+* `SDF_Shape_CutDisk` *(New)*
+* `SDF_Shape_CircleWave` *(New)*
 
-SDF Sharp Star
+### 2. Domain (Space Manipulation)
+Modify the space *before* creating a shape to create twists, repetitions, and deformations.
 
-SDF NGon
+* `SDF_Transform` (Move, Rotate, Scale)
+* `SDF_Repeat_Grid` (Infinite repetition in X/Y/Z with Cell ID output)
+* `SDF_Repeat_Radial` (Circular repetition)
+* `SDF_Mirror` (Symmetry along axis)
+* `SDF_Twist` (Twist geometry along axis)
+* `SDF_Elongate` (Stretch shapes without distorting corners)
+* `SDF_Repeat_2D`
+* `SDF_Array_2D`
+* `SDF_Rotate`
+* `SDF_Scale`
+* `SDF_Transform`
+* `SDF_Transform_2D`
 
-SDF Rectangle
+### 3. Operators (Boolean Logic)
+Combine multiple SDF shapes.
 
-SDF Ellipse
+* `SDF_Boolean` (Union, Subtraction, Intersection)
+* `SDF_Smooth_Boolean` (Blob-like organic blending)
+* `SDF_Smooth_Difference` (Smooth subtraction/carving)
 
-SDF Egg
+### 4. Modifiers (Shape Alteration)
+Modify the resulting SDF field.
 
-🔧 Transformers (2D)
-SDF Translate 2D
+* `SDF_Round` (Round edges of any shape)
+* `SDF_Displace` (Add noise or texture displacement)
+* `SDF_Shell`
+* `SDF_Noise_Advanced`
 
-SDF Rotate 2D
+### 5. Utils (Helper Nodes)
+Essential tools for the 3ds Max workflow.
 
-SDF Scale 2D
+* `SDF_UV_Setup` (**Crucial**: Maps UV coordinates 0-1 to SDF coordinates -1 to 1. Use this first for 2D shapes on planes).
+* `SDF_to_Normal` (Converts SDF to Normal Map for lighting details).
+* `SDF_Preview_3D` (Fake 3D lighting visualization on 2D planes).
+* `Util_Color_by_Value`
 
-🔀 Combiners
-
-SDF Boolean (Union / Subtract / Intersect)
-
-SDF Smooth Union
-
-♻️ Repeaters
-
-SDF Array 2D
-
-SDF Repeat Radial Advanced
-
-🎨 Detailers
-
-SDF Noise Advanced
-
-SDF Displace
-
-SDF Shell
-
-🛠 Utilities
-
-SDF to Mask
-
-Util Color by Value
+---
 
 📜 License
 
