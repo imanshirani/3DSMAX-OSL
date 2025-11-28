@@ -13,7 +13,7 @@ shader SDF_Twist(
     float c = cos(Amount * y);
     float s = sin(Amount * y);
     
-    s
+    
     float x_new = c * InputPoint[0] - s * InputPoint[2];
     float z_new = s * InputPoint[0] + c * InputPoint[2];
     
