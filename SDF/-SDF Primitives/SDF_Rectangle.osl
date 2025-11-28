@@ -1,24 +1,38 @@
 
 // SDF Rectangle Shader
 // SDF_Rectangle.osl by IMAN SHIRANI
-// 2025-09-11
-
+// 2025-11-28
 
 shader SDF_Rectangle
+
 (
     point Position = P,
-    vector Size = vector(1.0, 0.5, 0.0), 
+    
+    
+    vector Size = vector(1.0, 0.5, 0.0) [[ string label = "Size (Width/Height)" ]],
+    
+    
+    float CornerRadius = 0.0 [[ string label = "Corner Radius", float min = 0.0 ]],
 
     output float SDF_Out = 0.0
 )
 {
     
-    vector2 p = vector2(Position[0], Position[1]);
-    vector2 s = vector2(Size[0], Size[1]);
-    vector2 q = abs(p) - s;
+    
+    vector p = vector(Position[0], Position[1], 0.0);
+    
+    
+    vector s = vector(Size[0], Size[1], 0.0);
+    
+    
+    vector q = abs(p) - s;
 
+    
     float outside_dist = length(max(q, 0.0));
+    
+    
     float inside_dist = min(max(q[0], q[1]), 0.0);
 
-    SDF_Out = outside_dist + inside_dist;
+    
+    SDF_Out = (outside_dist + inside_dist) - CornerRadius;
 }
