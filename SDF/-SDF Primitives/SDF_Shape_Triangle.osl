@@ -2,6 +2,10 @@
 // 2025-11-25
 
 shader SDF_Shape_Triangle
+[[
+    string logo     = "SDF.png"
+]]
+
 (
     point Position = P,
     point P1 = point(0.0, 0.5, 0.0),

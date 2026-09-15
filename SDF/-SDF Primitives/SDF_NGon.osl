@@ -4,7 +4,11 @@
 // 2025-09-11
 
 
-shader SDF_NGon(
+shader SDF_NGon
+[[
+    string logo     = "SDF.png"
+]]
+(
     point Position = P,
     int Sides = 5,
     float Radius = 1.0,

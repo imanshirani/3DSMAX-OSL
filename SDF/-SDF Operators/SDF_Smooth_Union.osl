@@ -1,7 +1,12 @@
 // SDF_Smooth_Union.osl by IMAN SHIRANI
 // 2025-09-11
 
-shader SDF_Smooth_Union(
+shader SDF_Smooth_Union
+[[
+    string logo     = "SDF.png"
+]]
+
+(
     float SDF_A = 0.0,
     float SDF_B = 0.0,
     

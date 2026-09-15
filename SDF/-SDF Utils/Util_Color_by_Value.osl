@@ -3,7 +3,11 @@
 // 2025-09-11
 
 
-shader Util_Color_by_Value(
+shader Util_Color_by_Value
+[[
+    string logo     = "SDF.png"
+]]
+(
     
     float Value_In = 0.0,
 

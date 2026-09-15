@@ -4,7 +4,12 @@
 
 
 
-shader SDF_Box(
+shader SDF_Box
+[[
+    string logo     = "SDF.png"
+]]
+
+(
     point Position = P,
     vector Size = vector(1.0),
 

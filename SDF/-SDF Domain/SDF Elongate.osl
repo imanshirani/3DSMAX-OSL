@@ -5,6 +5,9 @@
 
 
 shader SDF_Elongate
+[[
+    string logo     = "SDF.png"
+]]
 (
     point InputPoint = P,
     

@@ -1,6 +1,10 @@
 // SDF_Shape_Triangle_Isosceles.osl by IMAN SHIRANI
 // 2025-11-25
 shader SDF_Shape_Triangle_Isosceles
+[[
+    string logo     = "SDF.png"
+]]
+
 (
     point Position = P,
     float Width = 0.3 [[ string label = "Width" ]],

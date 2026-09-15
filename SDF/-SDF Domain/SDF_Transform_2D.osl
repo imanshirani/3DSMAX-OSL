@@ -3,7 +3,11 @@
 // 2025-09-11
 
 
-shader SDF_Transform_2D(
+shader SDF_Transform_2D
+[[
+    string logo     = "SDF.png"
+]]
+(
     point Position_In = P,
     float Transform_X = 0.0,
     float Transform_Y = 0.0,

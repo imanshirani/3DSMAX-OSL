@@ -1,7 +1,11 @@
 // SDF_Mirror.osl by IMAN SHIRANI
 // 2025-11-25
 
-shader SDF_Mirror(
+shader SDF_Mirror
+[[
+    string logo     = "SDF.png"
+]]
+(
     point InputPoint = P,
     
     int Axis = 0 [[ string widget = "mapper", string options = "X-Axis:0|Y-Axis:1|Z-Axis:2" ]],

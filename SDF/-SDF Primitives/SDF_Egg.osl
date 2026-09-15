@@ -9,7 +9,12 @@ float smin(float a, float b, float k) {
     return mix(b, a, h) - k * h * (1.0 - h);
 }
 
-shader SDF_Egg(
+shader SDF_Egg
+[[
+    string logo     = "SDF.png"
+]]
+
+(
     point Position = P,
 
     

@@ -4,7 +4,11 @@
 
 
 
-shader SDF_Ellipse(
+shader SDF_Ellipse
+[[
+    string logo     = "SDF.png"
+]]
+(
     point Position = P,
     
     vector Radii = vector(1.0, 0.5, 1.0),

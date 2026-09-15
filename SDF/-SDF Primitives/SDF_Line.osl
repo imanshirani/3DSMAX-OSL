@@ -4,7 +4,11 @@
 
 
 
-shader SDF_Line(
+shader SDF_Line
+[[
+    string logo     = "SDF.png"
+]]
+(
     point Position = P,
     point PointA = point(-1, 0, 0),
     point PointB = point(1, 0, 0),

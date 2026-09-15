@@ -20,7 +20,12 @@ float get_val_safe(string file, float u_c, float v_c, int chan, int inv, float g
     return pow(max(0.0, v), gn);
 }
 
-shader ImageToSDF_Pro(
+shader ImageToSDF_Pro
+[[
+    string logo     = "SDF.png"
+]]
+
+(
 	
     string TextureFile = "" [[ string widget = "filename" ]], 
     int Channel = 4 [[ string widget = "mapper", string options = "RGB:0|Red:1|Green:2|Blue:3|Luminance:4" ]],

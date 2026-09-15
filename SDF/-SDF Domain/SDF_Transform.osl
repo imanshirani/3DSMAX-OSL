@@ -3,7 +3,11 @@
 // 2025-09-11
 
 
-shader SDF_Transform(
+shader SDF_Transform
+[[
+    string logo     = "SDF.png"
+]]
+(
     point Position_In = P,
     vector Amount = vector(0.0), 
 

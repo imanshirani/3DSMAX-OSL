@@ -4,7 +4,11 @@
 
 
 
-shader SDF_Array_2D(
+shader SDF_Array_2D
+[[
+    string logo     = "SDF.png"
+]]
+(
     point Position_In = P,
 
     

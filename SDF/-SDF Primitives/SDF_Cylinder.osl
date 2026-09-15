@@ -4,7 +4,12 @@
 
 
 
-shader SDF_Cylinder(
+shader SDF_Cylinder
+[[
+    string logo     = "SDF.png"
+]]
+
+(
     point Position = P,
     float Height = 2.0,
     float Radius = 0.5,

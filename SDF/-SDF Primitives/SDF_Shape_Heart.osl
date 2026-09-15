@@ -1,6 +1,12 @@
 // SDF_Shape_Heart.osl by IMAN SHIRANI
 // 2025-11-25
 shader SDF_Shape_Heart
+
+[[
+    string logo     = "SDF.png"
+]]
+
+
 (
     point Position = P,
     float Size = 1.0 [[ string label = "Size" ]],

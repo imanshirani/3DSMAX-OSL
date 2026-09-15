@@ -3,7 +3,12 @@
 
 
 
-shader SDF_Round(
+shader SDF_Round
+[[
+    string logo     = "SDF.png"
+]]
+
+(
    
     float InputSDF = 0.0,
     

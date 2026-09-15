@@ -4,6 +4,10 @@
 
 
 shader SDF_Shape_Pie
+
+[[
+    string logo     = "SDF.png"
+]]
 (
     point Position = P,
     float Angle = 0.5 [[ string label = "Angle (0 to 1)", float min = 0.0, float max = 1.0 ]],

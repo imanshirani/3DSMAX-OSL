@@ -2,7 +2,11 @@
 // SDF_Repeat_2D.osl by IMAN SHIRANI
 // 2025-09-11
 
-shader SDF_Repeat_2D(
+shader SDF_Repeat_2D
+[[
+    string logo     = "SDF.png"
+]]
+(
     
     point Position_In = P,
 

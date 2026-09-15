@@ -5,7 +5,11 @@
 
 
 
-shader SDF_Sphere(
+shader SDF_Sphere
+[[
+    string logo     = "SDF.png"
+]]
+(
     
     point Position = P,
     float Radius = 1.0,

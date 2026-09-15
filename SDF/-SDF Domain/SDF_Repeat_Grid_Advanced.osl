@@ -3,7 +3,11 @@
 // 2025-09-11
 
 
-shader SDF_Repeat_Grid_Advanced(
+shader SDF_Repeat_Grid_Advanced
+[[
+    string logo     = "SDF.png"
+]]
+(
     point Position_In = P,
 
    

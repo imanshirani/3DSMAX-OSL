@@ -2,7 +2,11 @@
 // 2025-11-25
 
 
-shader SDF_Preview_3D(
+shader SDF_Preview_3D
+[[
+    string logo     = "SDF.png"
+]]
+(
     float InputSDF = 0.0,
     
     color BaseColor = color(0.2, 0.4, 0.8) [[ string label = "Color" ]],

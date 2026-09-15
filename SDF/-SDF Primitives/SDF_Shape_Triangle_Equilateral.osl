@@ -1,6 +1,10 @@
 // SDF_Shape_Triangle_Equilateral.osl by IMAN SHIRANI
 // 2025-11-25
 shader SDF_Shape_Triangle_Equilateral
+[[
+    string logo     = "SDF.png"
+]]
+
 (
     point Position = P,
     float Radius = 0.5 [[ string label = "Size" ]],

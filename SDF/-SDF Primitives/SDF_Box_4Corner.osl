@@ -2,6 +2,10 @@
 // 2025-11-25
 
 shader SDF_Box_4Corner
+[[
+    string logo     = "SDF.png"
+]]
+
 (
     point Position = P,
     

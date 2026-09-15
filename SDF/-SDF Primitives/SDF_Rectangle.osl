@@ -4,7 +4,9 @@
 // 2025-11-28
 
 shader SDF_Rectangle
-
+[[
+    string logo     = "SDF.png"
+]]
 (
     point Position = P,
     

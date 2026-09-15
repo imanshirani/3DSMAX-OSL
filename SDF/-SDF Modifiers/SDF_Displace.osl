@@ -3,7 +3,11 @@
 // 2025-09-11
 
 
-shader SDF_Displace(
+shader SDF_Displace
+[[
+    string logo     = "SDF.png"
+]]
+(
     
     float SDF_In = 0.0,
     

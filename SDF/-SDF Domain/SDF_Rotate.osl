@@ -22,7 +22,11 @@ void rotate_z(output point p, float angle) {
     p = point(p[0]*c - p[1]*s, p[0]*s + p[1]*c, p[2]);
 }
 
-shader SDF_Rotate(
+shader SDF_Rotate
+[[
+    string logo     = "SDF.png"
+]]
+(
     point Position_In = P,
     float Angle_X = 0.0,
     float Angle_Y = 0.0,

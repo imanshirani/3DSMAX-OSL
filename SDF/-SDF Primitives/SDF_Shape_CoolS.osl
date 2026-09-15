@@ -3,7 +3,12 @@
 
 
 
-shader SDF_Shape_CoolS(
+shader SDF_Shape_CoolS
+[[
+    string logo     = "SDF.png"
+]]
+
+(
     point Position = P,
     float Size = 1.0 [[ string label = "Scale" ]],
     float Thickness = 0.08 [[ string label = "Thickness" ]],

@@ -5,7 +5,11 @@
 
 
 
-shader SDF_Star(
+shader SDF_Star
+[[
+    string logo     = "SDF.png"
+]]
+(
     
     point Position_UV = point(u, v, 0.0) * 2.0 - vector(1.0),
 

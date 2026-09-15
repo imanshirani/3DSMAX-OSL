@@ -4,7 +4,9 @@
 
 
 shader SDF_Smooth_Difference
-
+[[
+    string logo     = "SDF.png"
+]]
 (
     float SDF_Base = 0.0 [[ string label = "Shape A (Base)" ]],
     float SDF_Cutter = 0.0 [[ string label = "Shape B (Cutter)" ]],

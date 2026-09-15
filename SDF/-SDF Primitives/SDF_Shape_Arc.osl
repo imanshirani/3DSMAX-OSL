@@ -3,6 +3,10 @@
 // 2025-11-25
 
 shader SDF_Shape_Arc
+
+[[
+    string logo     = "SDF.png"
+]]
 (
     point Position = P,
     float Angle_Open = 0.2 [[ string label = "Opening Aperture (0-1)" ]],

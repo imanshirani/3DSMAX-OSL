@@ -4,7 +4,11 @@
 
 
 
-shader SDF_Star_2(
+shader SDF_Star_2
+[[
+    string logo     = "SDF.png"
+]]
+(
     point Position = P,
     int Vertices = 5,
     float RadiusOuter = 1.0,  

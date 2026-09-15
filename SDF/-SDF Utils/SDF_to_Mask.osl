@@ -3,7 +3,11 @@
 // SDF_to_Mask.osl by IMAN SHIRANI
 // 2025-09-11
 
-shader SDF_to_Mask(
+shader SDF_to_Mask
+[[
+    string logo     = "SDF.png"
+]]
+(
     float SDF_In = 0.0,
     float Blur = 0.01, 
 

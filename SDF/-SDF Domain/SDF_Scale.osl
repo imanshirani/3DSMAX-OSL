@@ -4,7 +4,12 @@
 // 2025-09-11
 
 
-shader SDF_Scale(
+shader SDF_Scale
+[[
+    string logo     = "SDF.png"
+]]
+
+(
     point Position_In = P,
     float Scale = 1.0,
 

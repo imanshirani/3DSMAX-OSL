@@ -3,6 +3,9 @@
 
 
 shader SDF_to_Normal
+[[
+    string logo     = "SDF.png"
+]]
 (
     float InputSDF = 0.0,
     

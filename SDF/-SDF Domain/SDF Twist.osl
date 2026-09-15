@@ -1,6 +1,10 @@
 // SDF_Twist.osl by IMAN SHIRANI
 // 2025-11-25
-shader SDF_Twist(
+shader SDF_Twist
+[[
+    string logo     = "SDF.png"
+]]
+(
     point InputPoint = P,
     float Amount = 1.0 [[ string label = "Twist Amount", float min = -10.0, float max = 10.0 ]],
     output point OutPoint = P

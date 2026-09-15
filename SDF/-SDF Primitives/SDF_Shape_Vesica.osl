@@ -4,6 +4,10 @@
 
 
 shader SDF_Shape_Vesica
+[[
+    string logo     = "SDF.png"
+]]
+
 (
     point Position = P,
     

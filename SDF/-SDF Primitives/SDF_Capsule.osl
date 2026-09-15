@@ -2,6 +2,11 @@
 // 2025-11-25
 
 shader SDF_Capsule
+
+[[
+    string logo     = "SDF.png"
+]]
+
 (
     point Position = P,
     

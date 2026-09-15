@@ -1,6 +1,10 @@
 // SDF_Shape_Rhombus.osl by IMAN SHIRANI
 // 2025-11-25
 shader SDF_Shape_Rhombus
+[[
+    string logo     = "SDF.png"
+]]
+
 (
     point Position = P,
     float Width = 0.5 [[ string label = "Width" ]],

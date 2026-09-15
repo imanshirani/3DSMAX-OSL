@@ -1,6 +1,10 @@
 // SDF_Shape_Trapezoid.osl by IMAN SHIRANI
 // 2025-11-25
 shader SDF_Shape_Trapezoid
+[[
+    string logo     = "SDF.png"
+]]
+
 (
     point Position = P,
     float TopWidth = 0.3 [[ string label = "Top Width" ]],

@@ -4,7 +4,11 @@
 
 
 
-shader SDF_Torus(
+shader SDF_Torus
+[[
+    string logo     = "SDF.png"
+]]
+(
     point Position = P,
     float MajorRadius = 1.0,
     float MinorRadius = 0.2,
