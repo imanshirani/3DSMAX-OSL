@@ -6,6 +6,7 @@
 
 shader SDF_Star_2
 [[
+        string category = "SDF\\Primitives",
     string logo     = "SDF.png"
 ]]
 (

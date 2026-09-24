@@ -5,6 +5,7 @@
 
 shader SDF_Noise_Advanced
 [[
+        string category = "SDF\\Modifiers",
     string logo     = "SDF.png"
 ]]
 (

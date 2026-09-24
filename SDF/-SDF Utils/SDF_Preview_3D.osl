@@ -4,6 +4,7 @@
 
 shader SDF_Preview_3D
 [[
+        string category = "SDF\\Utils",
     string logo     = "SDF.png"
 ]]
 (

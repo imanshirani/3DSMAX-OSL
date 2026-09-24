@@ -2,6 +2,7 @@
 // 2025-11-25
 shader SDF_Twist
 [[
+        string category = "SDF\\Domain",
     string logo     = "SDF.png"
 ]]
 (
@@ -14,8 +15,9 @@ shader SDF_Twist
     float y = InputPoint[1];
     
     
-    float c = cos(Amount * y);
-    float s = sin(Amount * y);
+    float s = 0.0;
+    float c = 0.0;
+    sincos(Amount * y, s, c);
     
     
     float x_new = c * InputPoint[0] - s * InputPoint[2];

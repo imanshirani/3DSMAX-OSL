@@ -6,6 +6,7 @@
 
 shader SDF_Sharp_Star_outline
 [[
+        string category = "SDF\\Primitives",
     string logo     = "SDF.png"
 ]]
 (

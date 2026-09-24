@@ -5,6 +5,7 @@
 
 shader SDF_to_Mask
 [[
+        string category = "SDF\\Utils",
     string logo     = "SDF.png"
 ]]
 (

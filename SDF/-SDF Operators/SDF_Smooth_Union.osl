@@ -3,6 +3,7 @@
 
 shader SDF_Smooth_Union
 [[
+        string category = "SDF\\Operators",
     string logo     = "SDF.png"
 ]]
 

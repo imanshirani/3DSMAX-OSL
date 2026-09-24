@@ -4,6 +4,7 @@
 
 shader SDF_to_Normal
 [[
+        string category = "SDF\\Utils",
     string logo     = "SDF.png"
 ]]
 (

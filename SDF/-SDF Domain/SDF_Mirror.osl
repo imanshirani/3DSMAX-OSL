@@ -3,6 +3,7 @@
 
 shader SDF_Mirror
 [[
+        string category = "SDF\\Domain",
     string logo     = "SDF.png"
 ]]
 (

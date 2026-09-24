@@ -22,6 +22,7 @@ float get_val_safe(string file, float u_c, float v_c, int chan, int inv, float g
 
 shader ImageToSDF_Pro
 [[
+        string category = "SDF\\Primitives",
     string logo     = "SDF.png"
 ]]
 

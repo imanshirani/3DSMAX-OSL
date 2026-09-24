@@ -6,6 +6,7 @@
 
 shader SDF_Scale
 [[
+        string category = "SDF\\Domain",
     string logo     = "SDF.png"
 ]]
 

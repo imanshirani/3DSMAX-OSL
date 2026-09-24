@@ -6,6 +6,7 @@
 
 shader SDF_Box
 [[
+        string category = "SDF\\Primitives",
     string logo     = "SDF.png"
 ]]
 

@@ -6,23 +6,21 @@
 
 shader SDF_Elongate
 [[
+        string category = "SDF\\Domain",
     string logo     = "SDF.png"
 ]]
 (
     point InputPoint = P,
     
-    // میزان کشش در هر محور
+    
     vector Stretch = vector(0.0, 0.0, 0.0) [[ string label = "Stretch Size", float min = 0.0 ]],
     
     output point OutPoint = P
 )
 {
-    // تبدیل پوینت به وکتور برای محاسبات ریاضی
-    vector p = vector(InputPoint[0], InputPoint[1], InputPoint[2]);
     
-    // محدود کردن فاصله (Clamp)
-    // q = p - clamp(p, -h, h)
-    // اینجا چون clamp وکتور با وکتور در برخی نسخه‌ها ارور می‌دهد، دستی می‌نویسیم:
+    vector p = vector(InputPoint);
+    
     
     vector q = p - vector(
         clamp(p[0], -Stretch[0], Stretch[0]),

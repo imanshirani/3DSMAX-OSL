@@ -5,6 +5,7 @@
 
 shader SDF_Repeat_Grid_Advanced
 [[
+        string category = "SDF\\Domain",
     string logo     = "SDF.png"
 ]]
 (

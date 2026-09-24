@@ -5,6 +5,7 @@
 
 shader Util_Color_by_Value
 [[
+        string category = "SDF\\Utils",
     string logo     = "SDF.png"
 ]]
 (

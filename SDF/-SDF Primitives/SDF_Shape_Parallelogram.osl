@@ -3,6 +3,7 @@
 shader SDF_Shape_Parallelogram
 
 [[
+        string category = "SDF\\Primitives",
     string logo     = "SDF.png"
 ]]
 

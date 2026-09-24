@@ -5,25 +5,31 @@
 
 void rotate_x(output point p, float angle) {
     float rad = radians(angle);
-    float s = sin(rad);
-    float c = cos(rad);
+    float s = 0.0;
+    float c = 0.0;
+    sincos(rad, s, c);
     p = point(p[0], p[1]*c - p[2]*s, p[1]*s + p[2]*c);
 }
+
 void rotate_y(output point p, float angle) {
     float rad = radians(angle);
-    float s = sin(rad);
-    float c = cos(rad);
+    float s = 0.0;
+    float c = 0.0;
+    sincos(rad, s, c);
     p = point(p[0]*c + p[2]*s, p[1], -p[0]*s + p[2]*c);
 }
+
 void rotate_z(output point p, float angle) {
     float rad = radians(angle);
-    float s = sin(rad);
-    float c = cos(rad);
+    float s = 0.0;
+    float c = 0.0;
+    sincos(rad, s, c);
     p = point(p[0]*c - p[1]*s, p[0]*s + p[1]*c, p[2]);
 }
 
 shader SDF_Rotate
 [[
+    string category = "SDF\\Domain",
     string logo     = "SDF.png"
 ]]
 (

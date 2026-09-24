@@ -3,6 +3,7 @@
 
 shader SDF_Box_4Corner
 [[
+        string category = "SDF\\Primitives",
     string logo     = "SDF.png"
 ]]
 

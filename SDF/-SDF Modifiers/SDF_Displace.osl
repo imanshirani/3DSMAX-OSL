@@ -5,6 +5,7 @@
 
 shader SDF_Displace
 [[
+        string category = "SDF\\Modifiers",
     string logo     = "SDF.png"
 ]]
 (

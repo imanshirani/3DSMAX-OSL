@@ -5,6 +5,7 @@
 shader SDF_Shape_Arc
 
 [[
+        string category = "SDF\\Primitives",
     string logo     = "SDF.png"
 ]]
 (

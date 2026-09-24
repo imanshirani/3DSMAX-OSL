@@ -2,6 +2,7 @@
 // 2025-11-25
 shader SDF_Shape_Rhombus
 [[
+        string category = "SDF\\Primitives",
     string logo     = "SDF.png"
 ]]
 

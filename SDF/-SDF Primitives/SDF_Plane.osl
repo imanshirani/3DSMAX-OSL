@@ -4,6 +4,7 @@
 
 shader SDF_Plane
 [[
+        string category = "SDF\\Primitives",
     string logo     = "SDF.png"
 ]]
 

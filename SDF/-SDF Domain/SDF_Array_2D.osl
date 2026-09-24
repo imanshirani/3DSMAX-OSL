@@ -6,6 +6,7 @@
 
 shader SDF_Array_2D
 [[
+        string category = "SDF\\Domain",
     string logo     = "SDF.png"
 ]]
 (
