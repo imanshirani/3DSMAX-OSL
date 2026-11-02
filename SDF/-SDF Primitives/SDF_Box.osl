@@ -11,14 +11,14 @@ shader SDF_Box
 ]]
 
 (
-    point Position = P,
-    vector Size = vector(1.0),
+    point Position_In = P [[ string label = "Position In", string help = "Sampling coordinates; defaults to surface position P. Connect Domain Position_Out here." ]],
+    vector Size = vector(1.0) [[ string label = "Half Size XYZ", string help = "Half extents in coordinate units. Rectangle uses X/Y only." ]],
 
-    output float SDF_Out = 0.0
+    output float SDF_Out = 0.0 [[ string label = "SDF Out", string help = "Signed scalar field: negative inside, positive outside." ]]
 )
 {
     // 
-    vector q = abs(Position) - Size;
+    vector q = abs(Position_In) - Size;
 
     // 
     float outside_dist = length(max(q, 0.0));

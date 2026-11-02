@@ -9,7 +9,7 @@ shader SDF_Plane
 ]]
 
 (
-    point Position = P,
+    point Position_In = P [[ string label = "Position In", string help = "Sampling coordinates; defaults to surface position P. Connect Domain Position_Out here." ]],
     
    
     vector Normal = vector(0, 1, 0) [[ string label = "Plane Normal" ]],
@@ -17,12 +17,12 @@ shader SDF_Plane
     
     float Height = 0.0 [[ string label = "Offset / Height" ]],
     
-    output float SDF_Out = 0.0
+    output float SDF_Out = 0.0 [[ string label = "SDF Out", string help = "Signed scalar field: negative inside, positive outside." ]]
 )
 {
    
     vector n = normalize(Normal);
     
     
-    SDF_Out = dot(Position, n) + Height;
+    SDF_Out = dot(Position_In, n) + Height;
 }

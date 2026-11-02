@@ -9,24 +9,28 @@ shader SDF_Repeat_2D
 ]]
 (
     
-    point Position_In = P,
+    point Position_In = P [[ string label = "Position In", string help = "Sampling coordinates; defaults to surface position P. Connect Domain Position_Out here." ]],
 
     
-    vector Cell_Size = vector(2.0, 2.0, 0.0),
+    vector Cell_Spacing = vector(2.0, 2.0, 0.0) [[ string label = "Cell Spacing XYZ", string help = "Repeat period, not shape size. Uses X/Y and preserves Z." ]],
 
     
-    output point Position_Out = P,
+    output point Position_Out = P [[ string label = "Position Out", string help = "Sampling coordinates for Position_In of the next Domain node or shape." ]],
     
-    output point Cell_ID = point(0.0) 
+    output point Cell_ID = point(0.0) [[ string label = "Cell ID", string help = "Variation indices; use Position_Out to sample shapes." ]]
 )
 {
     
-    Cell_ID = floor(Position_In / Cell_Size);
+    // Only repeat X/Y; the default Z cell size is intentionally zero.
+    float sx = max(abs(Cell_Spacing[0]), 1e-6);
+    float sy = max(abs(Cell_Spacing[1]), 1e-6);
+    Cell_ID = point(floor(Position_In[0] / sx + 0.5),
+                    floor(Position_In[1] / sy + 0.5), 0.0);
     
     
-    point p_centered = Position_In + 0.5 * Cell_Size;
-    point p_mod = mod(p_centered, Cell_Size);
-    Position_Out = p_mod - 0.5 * Cell_Size;
+    Position_Out = point(Position_In[0] - Cell_ID[0] * sx,
+                         Position_In[1] - Cell_ID[1] * sy,
+                         Position_In[2]);
 
     
     Position_Out[2] = Position_In[2];

@@ -7,15 +7,15 @@ shader SDF_Shape_Rhombus
 ]]
 
 (
-    point Position = P,
-    float Width = 0.5 [[ string label = "Width" ]],
-    float Height = 0.8 [[ string label = "Height" ]],
+    point Position_In = P [[ string label = "Position In", string help = "Sampling coordinates; defaults to surface position P. Connect Domain Position_Out here." ]],
+    float Width = 0.5 [[ string label = "Half Width", string help = "Half width in coordinate units." ]],
+    float Height = 0.8 [[ string label = "Half Height", string help = "Half height in coordinate units." ]],
     float CornerRadius = 0.0 [[ string label = "Corner Radius", float min = 0.0 ]],
-    output float SDF_Out = 0.0
+    output float SDF_Out = 0.0 [[ string label = "SDF Out", string help = "Signed scalar field: negative inside, positive outside." ]]
 )
 {
     
-    point p_raw = abs(Position);
+    point p_raw = abs(Position_In);
     vector p = vector(p_raw[0], p_raw[1], 0.0);
     vector b = vector(Width, Height, 0.0);
     

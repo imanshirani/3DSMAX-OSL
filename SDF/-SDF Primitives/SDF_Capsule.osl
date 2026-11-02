@@ -9,17 +9,17 @@ shader SDF_Capsule
 ]]
 
 (
-    point Position = P,
+    point Position_In = P [[ string label = "Position In", string help = "Sampling coordinates; defaults to surface position P. Connect Domain Position_Out here." ]],
     
     point Point_A = point(0, 0, 0) [[ string label = "Start Point" ]],
     point Point_B = point(0, 2, 0) [[ string label = "End Point" ]],
     float Radius = 0.5 [[ string label = "Radius", float min = 0.0 ]],
     
-    output float SDF_Out = 0.0
+    output float SDF_Out = 0.0 [[ string label = "SDF Out", string help = "Signed scalar field: negative inside, positive outside." ]]
 )
 {
     // فرمول ریاضی کپسول (فاصله تا یک خط)
-    vector pa = Position - Point_A;
+    vector pa = Position_In - Point_A;
     vector ba = Point_B - Point_A;
     
     float h = clamp(dot(pa, ba) / dot(ba, ba), 0.0, 1.0);

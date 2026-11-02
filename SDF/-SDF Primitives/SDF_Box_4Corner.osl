@@ -8,10 +8,10 @@ shader SDF_Box_4Corner
 ]]
 
 (
-    point Position = P,
+    point Position_In = P [[ string label = "Position In", string help = "Sampling coordinates; defaults to surface position P. Connect Domain Position_Out here." ]],
     
-    float Width = 1.0 [[ string label = "Width", float min = 0.0 ]],
-    float Height = 1.0 [[ string label = "Height", float min = 0.0 ]],
+    float Width = 1.0 [[ string label = "Full Width", string help = "Full width in coordinate units.", float min = 0.0 ]],
+    float Height = 1.0 [[ string label = "Full Height", string help = "Full height in coordinate units.", float min = 0.0 ]],
     
     
     float R_TopRight = 0.2 [[ string label = "Radius Top-Right", float min = 0.0 ]],
@@ -19,11 +19,11 @@ shader SDF_Box_4Corner
     float R_BotRight = 0.0 [[ string label = "Radius Bot-Right", float min = 0.0 ]],
     float R_BotLeft = 0.2 [[ string label = "Radius Bot-Left", float min = 0.0 ]],
     
-    output float SDF_Out = 0.0
+    output float SDF_Out = 0.0 [[ string label = "SDF Out", string help = "Signed scalar field: negative inside, positive outside." ]]
 )
 {
     
-    point p = Position;
+    point p = Position_In;
     
     
     vector b = vector(Width * 0.5, Height * 0.5, 0.0);

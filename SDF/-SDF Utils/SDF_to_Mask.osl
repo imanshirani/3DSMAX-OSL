@@ -9,10 +9,10 @@ shader SDF_to_Mask
     string logo     = "SDF.png"
 ]]
 (
-    float SDF_In = 0.0,
+    float SDF_In = 0.0 [[ string label = "SDF In", string help = "Signed scalar field from a shape or SDF operator." ]],
     float Blur = 0.01, 
 
-    output color Mask_Out = color(0.0)
+    output color Mask_Out = color(0.0) [[ string label = "Mask Out", string help = "Black-and-white mask color with softened edges." ]]
 )
 {
     

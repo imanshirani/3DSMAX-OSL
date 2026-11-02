@@ -11,17 +11,17 @@ shader SDF_Sharp_Star_outline
 ]]
 (
     
-    point Position_UV = point(u, v, 0.0) * 2.0 - vector(1.0),
+    point Position_In = point(u, v, 0.0) * 2.0 - vector(1.0) [[ string label = "Position In", string help = "Defaults to remapped UV [-1,1]. Connected Domain coordinates bypass this default and are not remapped again." ]],
 
     int Vertices = 5,
-    float RadiusOuter = 0.8,
-    float RadiusInner = 0.4,
+    float RadiusOuter = 0.8 [[ string label = "Outer Radius", string help = "Outer star radius in coordinate units." ]],
+    float RadiusInner = 0.4 [[ string label = "Inner Radius", string help = "Inner star radius in coordinate units." ]],
 
-    output float SDF_Out = 0.0
+    output float SDF_Out = 0.0 [[ string label = "SDF Out", string help = "Signed scalar field: negative inside, positive outside." ]]
 )
 {
     
-    vector p = vector(Position_UV[0], Position_UV[1], 0.0);
+    vector p = vector(Position_In[0], Position_In[1], 0.0);
 
     
     float angle_slice = M_PI / Vertices;

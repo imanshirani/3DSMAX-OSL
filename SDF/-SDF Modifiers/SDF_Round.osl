@@ -11,14 +11,14 @@ shader SDF_Round
 
 (
    
-    float InputSDF = 0.0,
+    float SDF_In = 0.0 [[ string label = "SDF In", string help = "Signed scalar field from a shape or SDF operator." ]],
     
     
     float Radius = 0.1 [[ string label = "Round Radius", float min = 0.0 ]],
     
-    output float SDF_Out = 0.0
+    output float SDF_Out = 0.0 [[ string label = "SDF Out", string help = "Signed scalar field: negative inside, positive outside." ]]
 )
 {
     
-    SDF_Out = InputSDF - Radius;
+    SDF_Out = SDF_In - Radius;
 }

@@ -1,7 +1,7 @@
 // SDF_UV_Setup.osl by IMAN SHIRANI
 // 2026-11-02
 // Remap UV coordinates [0, 1] to the 2D SDF domain [-1, 1].
-// Connect Position_Out to the shape's Position or Position_UV input.
+// Connect Position_Out to the shape's Position_In input.
 // For a specific map channel, connect its UV coordinates to UV_In.
 
 shader SDF_UV_Setup
@@ -11,12 +11,12 @@ shader SDF_UV_Setup
 ]]
 (
     point UV_In = point(u, v, 0.0)
-    [[ string label = "UV Coordinates",
+    [[ string label = "UV In",
        string help = "Defaults to OSL u/v. Connect UV coordinates from your desired map channel here." ]],
 
     output point Position_Out = point(0.0)
-    [[ string label = "SDF Position",
-       string help = "Connect to the SDF shape's Position or Position_UV input." ]]
+    [[ string label = "Position Out",
+       string help = "Connect to the SDF shape's Position_In input." ]]
 )
 {
     // Keep Z at zero so this is a planar coordinate domain.

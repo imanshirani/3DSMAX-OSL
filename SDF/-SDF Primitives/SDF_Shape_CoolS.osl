@@ -10,13 +10,13 @@ shader SDF_Shape_CoolS
 ]]
 
 (
-    point Position = P,
-    float Size = 1.0 [[ string label = "Scale" ]],
+    point Position_In = P [[ string label = "Position In", string help = "Sampling coordinates; defaults to surface position P. Connect Domain Position_Out here." ]],
+    float Scale = 1.0 [[ string label = "Shape Scale", string help = "Uniform size multiplier: 0.5 is half size, 2 is double size." ]],
     float Thickness = 0.08 [[ string label = "Thickness" ]],
-    output float SDF_Out = 0.0
+    output float SDF_Out = 0.0 [[ string label = "SDF Out", string help = "Signed scalar field: negative inside, positive outside." ]]
 )
 {
-    point p = Position / Size;
+    point p = Position_In / Scale;
     float th = Thickness;
     
     
@@ -55,5 +55,5 @@ shader SDF_Shape_CoolS
     d = min(d, min(top_chev, bot_chev));
     
     
-    SDF_Out = d * Size;
+    SDF_Out = d * Scale;
 }

@@ -8,15 +8,15 @@ shader SDF_Shape_Triangle
 ]]
 
 (
-    point Position = P,
+    point Position_In = P [[ string label = "Position In", string help = "Sampling coordinates; defaults to surface position P. Connect Domain Position_Out here." ]],
     point P1 = point(0.0, 0.5, 0.0),
     point P2 = point(0.5, -0.5, 0.0),
     point P3 = point(-0.5, -0.5, 0.0),
     float CornerRadius = 0.0 [[ string label = "Corner Radius", float min = 0.0 ]],
-    output float SDF_Out = 0.0
+    output float SDF_Out = 0.0 [[ string label = "SDF Out", string help = "Signed scalar field: negative inside, positive outside." ]]
 )
 {
-    vector p = vector(Position[0], Position[1], 0.0);
+    vector p = vector(Position_In[0], Position_In[1], 0.0);
     vector p0 = vector(P1[0], P1[1], 0.0);
     vector p1 = vector(P2[0], P2[1], 0.0);
     vector p2 = vector(P3[0], P3[1], 0.0);

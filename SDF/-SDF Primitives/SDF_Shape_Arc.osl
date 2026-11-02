@@ -9,18 +9,18 @@ shader SDF_Shape_Arc
     string logo     = "SDF.png"
 ]]
 (
-    point Position = P,
+    point Position_In = P [[ string label = "Position In", string help = "Sampling coordinates; defaults to surface position P. Connect Domain Position_Out here." ]],
     float Angle_Open = 0.2 [[ string label = "Opening Aperture (0-1)" ]],
     float Radius = 0.5 [[ string label = "Radius" ]],
     float Thickness = 0.05 [[ string label = "Thickness" ]],
-    output float SDF_Out = 0.0
+    output float SDF_Out = 0.0 [[ string label = "SDF Out", string help = "Signed scalar field: negative inside, positive outside." ]]
 )
 {
     
     float ta = Angle_Open * 3.141593;
     vector sc = vector(sin(ta), cos(ta), 0.0);
     
-    point p = Position;
+    point p = Position_In;
     
     p[0] = abs(p[0]);
     

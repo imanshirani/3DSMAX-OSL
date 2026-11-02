@@ -16,7 +16,7 @@ shader Util_Color_by_Value
     color Color_Low = color(0.1),  
     color Color_High = color(1.0), 
 
-    output color Color_Out = color(0.0)
+    output color Color_Out = color(0.0) [[ string label = "Color Out", string help = "Color output for a material color input." ]]
 )
 {
     

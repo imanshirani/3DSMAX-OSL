@@ -7,15 +7,15 @@ shader SDF_Shape_Trapezoid
 ]]
 
 (
-    point Position = P,
-    float TopWidth = 0.3 [[ string label = "Top Width" ]],
-    float BottomWidth = 0.5 [[ string label = "Bottom Width" ]],
-    float Height = 0.5 [[ string label = "Height" ]],
+    point Position_In = P [[ string label = "Position In", string help = "Sampling coordinates; defaults to surface position P. Connect Domain Position_Out here." ]],
+    float TopWidth = 0.3 [[ string label = "Top Half Width", string help = "Half width of the top edge." ]],
+    float BottomWidth = 0.5 [[ string label = "Bottom Half Width", string help = "Half width of the bottom edge." ]],
+    float Height = 0.5 [[ string label = "Half Height", string help = "Half height in coordinate units." ]],
     float CornerRadius = 0.0 [[ string label = "Corner Radius", float min = 0.0 ]],
-    output float SDF_Out = 0.0
+    output float SDF_Out = 0.0 [[ string label = "SDF Out", string help = "Signed scalar field: negative inside, positive outside." ]]
 )
 {
-    point p_raw = Position;
+    point p_raw = Position_In;
     p_raw[0] = abs(p_raw[0]); 
     vector p = vector(p_raw[0], p_raw[1], 0.0);
     

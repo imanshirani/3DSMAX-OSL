@@ -10,16 +10,16 @@ shader SDF_Star_2
     string logo     = "SDF.png"
 ]]
 (
-    point Position = P,
+    point Position_In = P [[ string label = "Position In", string help = "Sampling coordinates; defaults to surface position P. Connect Domain Position_Out here." ]],
     int Vertices = 5,
-    float RadiusOuter = 1.0,  
-    float RadiusInner = 0.4,  
+    float RadiusOuter = 1.0 [[ string label = "Outer Radius", string help = "Outer star radius in coordinate units." ]],
+    float RadiusInner = 0.4 [[ string label = "Inner Radius", string help = "Inner star radius in coordinate units." ]],
 
-    output float SDF_Out = 0.0
+    output float SDF_Out = 0.0 [[ string label = "SDF Out", string help = "Signed scalar field: negative inside, positive outside." ]]
 )
 {
     
-    vector p = vector(Position[0], Position[1], 0.0);
+    vector p = vector(Position_In[0], Position_In[1], 0.0);
     float angle_slice = M_PI / Vertices;
     float angle = atan2(p[1], p[0]);
     float angle_folded = mod(angle, 2.0 * angle_slice) - angle_slice;

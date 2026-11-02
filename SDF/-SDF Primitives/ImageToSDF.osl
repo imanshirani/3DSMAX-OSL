@@ -40,25 +40,25 @@ shader ImageToSDF_Pro
     int FlipU = 0 [[ string widget = "checkbox", string label = "Flip Horizontal (Mirror)" ]],
     int FlipV = 1 [[ string widget = "checkbox", string label = "Flip Vertical (Upside Down)" ]], 
     
-    point UV = point(u, v, 0),
-    output float outSDF = 0.0
+    point UV_In = point(u, v, 0) [[ string label = "UV In", string help = "Raw UV coordinates in [0,1]. Defaults to OSL u/v." ]],
+    output float SDF_Out = 0.0 [[ string label = "SDF Out", string help = "Signed scalar field: negative inside, positive outside." ]]
 )
 {
-    if (TextureFile == "") { outSDF = 1.0; return; }
+    if (TextureFile == "") { SDF_Out = 1.0; return; }
 
   
-    float final_u = FlipU ? (1.0 - UV[0]) : UV[0];
-    float final_v = FlipV ? (1.0 - UV[1]) : UV[1];
+    float final_u = FlipU ? (1.0 - UV_In[0]) : UV_In[0];
+    float final_v = FlipV ? (1.0 - UV_In[1]) : UV_In[1];
 
     float val_center = get_val_safe(TextureFile, final_u, final_v, Channel, InvertColor, Gain);
     
     if (Smoothness <= 0.001) {
        
-        outSDF = (SurfaceLevel - val_center) * Amplitude;
+        SDF_Out = (SurfaceLevel - val_center) * Amplitude;
     } 
     else {
      
         float signed_val = (val_center - SurfaceLevel) * 2.0;
-        outSDF = signed_val * Smoothness * Amplitude * -1.0; 
+        SDF_Out = signed_val * Smoothness * Amplitude * -1.0; 
     }
 }

@@ -10,16 +10,16 @@ shader SDF_Shape_Vesica
 ]]
 
 (
-    point Position = P,
+    point Position_In = P [[ string label = "Position In", string help = "Sampling coordinates; defaults to surface position P. Connect Domain Position_Out here." ]],
     
     float Radius = 0.5 [[ string label = "Radius (r)" ]],
     float Spread = 0.2 [[ string label = "Spread (d)" ]],
     
-    output float SDF_Out = 0.0
+    output float SDF_Out = 0.0 [[ string label = "SDF Out", string help = "Signed scalar field: negative inside, positive outside." ]]
 )
 {
     
-    point p = Position;
+    point p = Position_In;
     
     
     p = abs(p);

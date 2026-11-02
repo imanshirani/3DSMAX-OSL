@@ -16,7 +16,7 @@ shader SDF_Egg
 ]]
 
 (
-    point Position = P,
+    point Position_In = P [[ string label = "Position In", string help = "Sampling coordinates; defaults to surface position P. Connect Domain Position_Out here." ]],
 
     
     float BottomRadius = 1.0,   
@@ -24,15 +24,15 @@ shader SDF_Egg
     float Height = 1.5,         
     float Smoothness = 0.5,     
 
-    output float SDF_Out = 0.0
+    output float SDF_Out = 0.0 [[ string label = "SDF Out", string help = "Signed scalar field: negative inside, positive outside." ]]
 )
 {
      
-    float sphere1_sdf = distance(Position, point(0, 0, 0)) - BottomRadius;
+    float sphere1_sdf = distance(Position_In, point(0, 0, 0)) - BottomRadius;
 
      
     point top_sphere_center = point(0, Height, 0);
-    float sphere2_sdf = distance(Position, top_sphere_center) - TopRadius;
+    float sphere2_sdf = distance(Position_In, top_sphere_center) - TopRadius;
 
     
     SDF_Out = smin(sphere1_sdf, sphere2_sdf, Smoothness);

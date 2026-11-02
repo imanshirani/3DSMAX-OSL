@@ -8,7 +8,7 @@ shader SDF_Preview_3D
     string logo     = "SDF.png"
 ]]
 (
-    float InputSDF = 0.0,
+    float SDF_In = 0.0 [[ string label = "SDF In", string help = "Signed scalar field from a shape or SDF operator." ]],
     
     color BaseColor = color(0.2, 0.4, 0.8) [[ string label = "Color" ]],
     vector LightDir = vector(-0.5, 0.5, 1.0) [[ string label = "Light Direction" ]],
@@ -18,15 +18,15 @@ shader SDF_Preview_3D
     float dx = 0.0 [[ string widget = "null", int lockgeom = 0 ]], 
     float dy = 0.0 [[ string widget = "null", int lockgeom = 0 ]],
     
-    output color OutColor = color(0.0),
-    output vector OutNormal = vector(0.0)
+    output color Color_Out = color(0.0) [[ string label = "Color Out", string help = "Color output for a material color input." ]],
+    output vector Normal_Out = vector(0.0) [[ string label = "Normal Out", string help = "Normal vector; not a sampling position." ]]
 )
 {
     
-    if (InputSDF < 0.0) {
+    if (SDF_In < 0.0) {
         
         
-        vector n = normalize(vector(Dx(InputSDF), Dy(InputSDF), Smoothness));
+        vector n = normalize(vector(Dx(SDF_In), Dy(SDF_In), Smoothness));
         
         
         vector l = normalize(LightDir);
@@ -39,12 +39,12 @@ shader SDF_Preview_3D
         float rim = 1.0 - max(dot(n, vector(0,0,1)), 0.0);
         rim = pow(rim, 3.0) * 0.5;
         
-        OutColor = BaseColor * (diffuse + ambient) + rim;
-        OutNormal = n; 
+        Color_Out = BaseColor * (diffuse + ambient) + rim;
+        Normal_Out = n; 
     } 
     else {
         
-        OutColor = color(0.0, 0.0, 0.0); 
-        OutNormal = vector(0, 0, 1); 
+        Color_Out = color(0.0, 0.0, 0.0); 
+        Normal_Out = vector(0, 0, 1); 
     }
 }

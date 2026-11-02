@@ -9,14 +9,14 @@ shader SDF_Shape_Heart
 
 
 (
-    point Position = P,
-    float Size = 1.0 [[ string label = "Size" ]],
+    point Position_In = P [[ string label = "Position In", string help = "Sampling coordinates; defaults to surface position P. Connect Domain Position_Out here." ]],
+    float Scale = 1.0 [[ string label = "Shape Scale", string help = "Uniform size multiplier: 0.5 is half size, 2 is double size." ]],
     float CornerRadius = 0.0 [[ string label = "Corner Radius", float min = 0.0 ]],
-    output float SDF_Out = 0.0
+    output float SDF_Out = 0.0 [[ string label = "SDF Out", string help = "Signed scalar field: negative inside, positive outside." ]]
 )
 {
    
-    point p_raw = Position / Size;
+    point p_raw = Position_In / Scale;
     
     
     p_raw[1] -= 0.5;
@@ -48,5 +48,5 @@ shader SDF_Shape_Heart
     }
     
     
-    SDF_Out = (d * Size) - CornerRadius;
+    SDF_Out = (d * Scale) - CornerRadius;
 }

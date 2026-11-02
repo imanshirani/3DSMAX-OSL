@@ -10,16 +10,16 @@ shader SDF_Line
     string logo     = "SDF.png"
 ]]
 (
-    point Position = P,
-    point PointA = point(-1, 0, 0),
-    point PointB = point(1, 0, 0),
+    point Position_In = P [[ string label = "Position In", string help = "Sampling coordinates; defaults to surface position P. Connect Domain Position_Out here." ]],
+    point Point_A = point(-1, 0, 0),
+    point Point_B = point(1, 0, 0),
     float Thickness = 0.1,
     
-    output float SDF_Out = 0.0
+    output float SDF_Out = 0.0 [[ string label = "SDF Out", string help = "Signed scalar field: negative inside, positive outside." ]]
 )
 {
-    vector pa = Position - PointA;
-    vector ba = PointB - PointA;   
+    vector pa = Position_In - Point_A;
+    vector ba = Point_B - Point_A;   
     
     float h = clamp(dot(pa, ba) / dot(ba, ba), 0.0, 1.0);
     

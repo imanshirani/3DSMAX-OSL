@@ -6,13 +6,13 @@ shader SDF_Twist
     string logo     = "SDF.png"
 ]]
 (
-    point InputPoint = P,
+    point Position_In = P [[ string label = "Position In", string help = "Sampling coordinates; defaults to surface position P. Connect Domain Position_Out here." ]],
     float Amount = 1.0 [[ string label = "Twist Amount", float min = -10.0, float max = 10.0 ]],
-    output point OutPoint = P
+    output point Position_Out = P [[ string label = "Position Out", string help = "Sampling coordinates for Position_In of the next Domain node or shape." ]]
 )
 {
     
-    float y = InputPoint[1];
+    float y = Position_In[1];
     
     
     float s = 0.0;
@@ -20,9 +20,9 @@ shader SDF_Twist
     sincos(Amount * y, s, c);
     
     
-    float x_new = c * InputPoint[0] - s * InputPoint[2];
-    float z_new = s * InputPoint[0] + c * InputPoint[2];
+    float x_new = c * Position_In[0] - s * Position_In[2];
+    float z_new = s * Position_In[0] + c * Position_In[2];
     
     
-    OutPoint = point(x_new, y, z_new);
+    Position_Out = point(x_new, y, z_new);
 }

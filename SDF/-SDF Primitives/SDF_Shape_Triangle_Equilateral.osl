@@ -7,13 +7,13 @@ shader SDF_Shape_Triangle_Equilateral
 ]]
 
 (
-    point Position = P,
+    point Position_In = P [[ string label = "Position In", string help = "Sampling coordinates; defaults to surface position P. Connect Domain Position_Out here." ]],
     float Radius = 0.5 [[ string label = "Size" ]],
     float CornerRadius = 0.0 [[ string label = "Corner Radius", float min = 0.0 ]],
-    output float SDF_Out = 0.0
+    output float SDF_Out = 0.0 [[ string label = "SDF Out", string help = "Signed scalar field: negative inside, positive outside." ]]
 )
 {
-    point p_raw = Position;
+    point p_raw = Position_In;
     p_raw[0] = abs(p_raw[0]);
     vector p = vector(p_raw[0], p_raw[1], 0.0);
     float r = Radius;

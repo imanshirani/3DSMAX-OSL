@@ -9,24 +9,25 @@ shader SDF_Repeat_Grid_Advanced
     string logo     = "SDF.png"
 ]]
 (
-    point Position_In = P,
+    point Position_In = P [[ string label = "Position In", string help = "Sampling coordinates; defaults to surface position P. Connect Domain Position_Out here." ]],
 
    
-    int Divisions_X = 5,
-    int Divisions_Y = 5,
+    int Cells_Per_Unit_X = 5 [[ string label = "Cells Per Unit X", string help = "Repeat frequency along X. UV_Setup spans two units." ]],
+    int Cells_Per_Unit_Y = 5 [[ string label = "Cells Per Unit Y", string help = "Repeat frequency along Y. UV_Setup spans two units." ]],
 
     
-    output point Position_Out = P,
-    output point Cell_ID = point(0.0) 
+    output point Position_Out = P [[ string label = "Position Out", string help = "Sampling coordinates for Position_In of the next Domain node or shape." ]],
+    output point Cell_ID = point(0.0) [[ string label = "Cell ID", string help = "Variation indices; use Position_Out to sample shapes." ]]
 )
 {
     
-    vector divisions = vector(max(1, Divisions_X), max(1, Divisions_Y), 1.0);
+    vector divisions = vector(max(1, Cells_Per_Unit_X), max(1, Cells_Per_Unit_Y), 1.0);
     
     vector cell_size = 1.0 / divisions;
     
  
-    Cell_ID = floor(Position_In / cell_size);
+    Cell_ID = point(floor(Position_In[0] / cell_size[0] + 0.5),
+                    floor(Position_In[1] / cell_size[1] + 0.5), 0.0);
     
     
     point p_centered = Position_In + 0.5 * cell_size;

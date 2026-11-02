@@ -10,16 +10,16 @@ shader SDF_Elongate
     string logo     = "SDF.png"
 ]]
 (
-    point InputPoint = P,
+    point Position_In = P [[ string label = "Position In", string help = "Sampling coordinates; defaults to surface position P. Connect Domain Position_Out here." ]],
     
     
     vector Stretch = vector(0.0, 0.0, 0.0) [[ string label = "Stretch Size", float min = 0.0 ]],
     
-    output point OutPoint = P
+    output point Position_Out = P [[ string label = "Position Out", string help = "Sampling coordinates for Position_In of the next Domain node or shape." ]]
 )
 {
     
-    vector p = vector(InputPoint);
+    vector p = vector(Position_In);
     
     
     vector q = p - vector(
@@ -28,5 +28,5 @@ shader SDF_Elongate
         clamp(p[2], -Stretch[2], Stretch[2])
     );
     
-    OutPoint = point(q[0], q[1], q[2]);
+    Position_Out = point(q[0], q[1], q[2]);
 }

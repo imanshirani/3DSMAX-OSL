@@ -9,7 +9,7 @@ shader SDF_Noise_Advanced
     string logo     = "SDF.png"
 ]]
 (
-    point Position = P,
+    point Position_In = P [[ string label = "Position In", string help = "Sampling coordinates; defaults to surface position P. Connect Domain Position_Out here." ]],
 
     
     int Noise_Type = 0
@@ -17,7 +17,7 @@ shader SDF_Noise_Advanced
         string widget = "mapper",
         string options = "Simplex:0|Perlin:1|Cell:2"
     ]],
-    float Scale = 1.0,
+    float Scale = 1.0 [[ string label = "Noise Frequency", string help = "Coordinate frequency multiplier; larger values produce finer noise." ]],
     int Octaves = 4,
     float Lacunarity = 2.0,  // How much detail is added per octave
     float Gain = 0.5,        // How much each octave contributes
@@ -26,13 +26,13 @@ shader SDF_Noise_Advanced
         string widget = "checkBox"
     ]],
 
-    output float Noise_Out = 0.0
+    output float Noise_Out = 0.0 [[ string label = "Noise Out", string help = "Scalar noise for Noise_In of SDF_Displace." ]]
 )
 {
     float amplitude = 1.0;
     float frequency = 1.0 / Scale;
     float noise_val = 0.0;
-    point p = Position;
+    point p = Position_In;
 
     // Loop for adding layers of detail (Octaves)
     for (int i = 0; i < Octaves; i++) {

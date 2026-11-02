@@ -10,10 +10,10 @@ shader SDF_Shape_Pie
     string logo     = "SDF.png"
 ]]
 (
-    point Position = P,
+    point Position_In = P [[ string label = "Position In", string help = "Sampling coordinates; defaults to surface position P. Connect Domain Position_Out here." ]],
     float Angle = 0.5 [[ string label = "Angle (0 to 1)", float min = 0.0, float max = 1.0 ]],
     float Radius = 0.5 [[ string label = "Radius" ]],
-    output float SDF_Out = 0.0
+    output float SDF_Out = 0.0 [[ string label = "SDF Out", string help = "Signed scalar field: negative inside, positive outside." ]]
 )
 {
     
@@ -23,7 +23,7 @@ shader SDF_Shape_Pie
     vector c = vector(sin(a), cos(a), 0.0);
     
     
-    point p = Position;
+    point p = Position_In;
     p[0] = abs(p[0]); 
     
     float l = length(vector(p[0], p[1], 0)) - Radius;

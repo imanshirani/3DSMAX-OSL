@@ -8,7 +8,7 @@ shader SDF_to_Normal
     string logo     = "SDF.png"
 ]]
 (
-    float InputSDF = 0.0,
+    float SDF_In = 0.0 [[ string label = "SDF In", string help = "Signed scalar field from a shape or SDF operator." ]],
     
     
     float Smoothness = 0.001 [[ string label = "Precision / Delta" ]],
@@ -16,8 +16,8 @@ shader SDF_to_Normal
     
     int AsColor = 1 [[ string label = "Output as Normal Map Color", string widget = "checkbox" ]],
     
-    output vector OutNormal = vector(0.0),
-    output color OutColor = color(0.5, 0.5, 1.0)
+    output vector Normal_Out = vector(0.0) [[ string label = "Normal Out", string help = "Normal vector; not a sampling position." ]],
+    output color Color_Out = color(0.5, 0.5, 1.0) [[ string label = "Color Out", string help = "Color output for a material color input." ]]
 )
 {
     
@@ -25,15 +25,15 @@ shader SDF_to_Normal
     vector n = vector(0.0);
     
     
-    n = normalize(vector(Dx(InputSDF), Dy(InputSDF), Smoothness));
+    n = normalize(vector(Dx(SDF_In), Dy(SDF_In), Smoothness));
     
     
-    OutNormal = n;
+    Normal_Out = n;
     
     
     if (AsColor) {
-        OutColor = color(n[0] * 0.5 + 0.5, n[1] * 0.5 + 0.5, n[2] * 0.5 + 0.5);
+        Color_Out = color(n[0] * 0.5 + 0.5, n[1] * 0.5 + 0.5, n[2] * 0.5 + 0.5);
     } else {
-        OutColor = color(n);
+        Color_Out = color(n);
     }
 }
