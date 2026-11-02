@@ -50,8 +50,3 @@ The examples are procedural material masks, not generated mesh objects.
 The flag is a demonstration of arrangement and shape composition, not a certified
 manufacturing specification. The toolkit source files were not modified to make it.
 
-## Rebuilding
-
-build_showcase.py builds the five scenes through 3dsmaxbatch.exe on the creator's
-workspace. Its input paths are specific to that workspace; the saved .max examples
-embed their shader code and are intended for sharing independently.
