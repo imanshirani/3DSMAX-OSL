@@ -6,6 +6,8 @@ This toolkit brings the power of **Signed Distance Fields (SDFs)** and procedura
 
 ![screenshot](SignedDistanceFields(SDFs).png)
 
+
+
 ---
 
 ## 📖 About The Project
@@ -164,6 +166,12 @@ Essential tools for the 3ds Max workflow.
 * `SDF_to_Mask.osl`
 
 ---
+
+![American flag](showcase/01_American_Flag.png)
+![Gold mandala](showcase/02_Gold_Mandala.png)
+![Perforated panel](showcase/03_Perforated_Panel.png)
+![Art Deco pattern](showcase/04_Art_Deco_Pattern.png)
+![Compass emblem](showcase/05_Compass_Emblem.png)
 
 📜 License
 
