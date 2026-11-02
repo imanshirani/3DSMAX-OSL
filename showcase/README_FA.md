@@ -11,6 +11,12 @@
 | 04_Art_Deco_Pattern.max | الگوی تزئینی از قوس‌های تو‌در‌تو و آرایه‌های جابه‌جاشده. |
 | 05_Compass_Emblem.max | نشان قطب‌نما از دو ستارهٔ چهارپر، حلقه‌ها و ۴۸ خط شعاعی. |
 
+![American flag](01_American_Flag.png)
+![Gold mandala](02_Gold_Mandala.png)
+![Perforated panel](03_Perforated_Panel.png)
+![Art Deco pattern](04_Art_Deco_Pattern.png)
+![Compass emblem](05_Compass_Emblem.png)
+
 ## استفاده
 
 فایل مکس را باز کن. هر نمونه یک صفحه، متریال پارامتریک و دوربین تست Scanline دارد.
