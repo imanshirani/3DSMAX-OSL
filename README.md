@@ -161,6 +161,7 @@ Essential tools for the 3ds Max workflow.
 * `SDF_to_Normal` (Converts SDF to Normal Map for lighting details).
 * `SDF_Preview_3D` (Fake 3D lighting visualization on 2D planes).
 * `Util_Color_by_Value`
+* `SDF_to_Mask.osl`
 
 ---
 
